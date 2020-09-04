@@ -1,0 +1,16 @@
+<div class="container vertically-center">
+
+    <form #loginForm="ngForm" class="form-signin text-center" (submit)="login()">
+      <img class="mb-4" src="https://www.toesox.com/wp/wp-content/uploads/2016/01/orgnic-produce.jpg" alt="organix.com" height="72">
+      <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+      <label for="inputEmail" class="sr-only">Email address</label>
+      <input #Email ngModel type="email" name="email" id="inputEmail" [(ngModel)]="model.email" class="form-control" placeholder="Email address" [pattern]="emailPattern" required>
+      <label for="inputPassword" class="sr-only">Password</label>
+      <input #Password ngModel type="password" name="password" id="inputPassword" [(ngModel)]="model.password" class="form-control" placeholder="Password" required minlength="7">
+      <button [disabled]="!loginForm.valid" class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+    </form>
+    <div class="form-signin" style="text-align: right">
+      <button type="button" class="btn" style="color: crimson;">Forgot Password?</button>
+      <button type="button" class="btn" style="color: red;" routerLink="/register">Not Registered?</button>
+    </div>
+  </div>

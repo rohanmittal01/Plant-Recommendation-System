@@ -1,0 +1,41 @@
+import { Injectable } from '@angular/core';
+import { environment } from 'src/environments/environment';
+import { HttpClient } from '@angular/common/http';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class ProductService {
+
+  baseUrl = environment.apiUrl;
+
+  constructor(private http: HttpClient) { }
+
+  create(product){
+    return this.http.post(this.baseUrl + 'products', product);
+  }
+
+  getAll(){
+    return this.http.get(this.baseUrl + 'products/available');
+  }
+
+  getAllProducts(){
+    return this.http.get(this.baseUrl + 'products/all');
+  }
+
+  get(id){
+    return this.http.get(this.baseUrl + 'products/' + id);
+  }
+
+  update(id, product){
+    return this.http.patch(this.baseUrl + 'products/' + id, product);
+  }
+
+  delete(id){
+    return this.http.delete(this.baseUrl + 'products/' + id);
+  }
+
+  addToCart(id){
+
+  }
+}
