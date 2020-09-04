@@ -1,0 +1,26 @@
+.card-footer{
+    padding:0;
+    cursor: pointer;
+}
+.card{
+    margin-bottom: 30px;
+    height: 320px;
+    /* width: 200px; */
+    transition: transform .2s;
+}
+.card:hover{
+    border-color: tomato;
+    -ms-transform: scale(1.1); /* IE 9 */
+    -webkit-transform: scale(1.1); /* Safari 3-8 */
+    transform: scale(1.1); 
+}
+
+img {
+    height: 150px;
+    max-width: none;
+    /* max-width: 200px; */
+    object-fit: cover;
+}
+/* img{
+    height: 200px;
+} */

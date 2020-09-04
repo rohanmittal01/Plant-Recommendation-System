@@ -1,1 +1,117 @@
-<p>product-form works!</p>
+<div class="row">
+    <div class="col-md-6">
+        <button type="button"  class="btn btn-info" routerLink="/admin/products">    
+            <span class="material-icons">
+                arrow_back
+          </span>
+        </button>
+        <div class="card card-1 mt-2">
+            <div class="card-body">
+                <form #f="ngForm" (submit)="save()">
+                    <div class="form-group">
+                        <label for="Latin_Name">Latin Name</label>
+                        <input autofocus required [(ngModel)]="product.Latin_Name" #Latin_Name="ngModel"  name="Latin_Name" id="Latin_Name" type="text" class="form-control">
+                        <div class="alert alert-danger" *ngIf="Latin_Name.touched && Latin_Name.invalid">Latin Name is required.</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="Common_Name">Common Name</label>
+                        <input autofocus required [(ngModel)]="product.Common_Name" #Common_Name="ngModel"  name="Common_Name" id="Common_Name" type="text" class="form-control">
+                        <div class="alert alert-danger" *ngIf="Common_Name.touched && Common_Name.invalid">Common Name is required.</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="Family_Name">Family Name</label>
+                        <input autofocus required [(ngModel)]="product.Family_Name" #Family_Name="ngModel"  name="Family_Name" id="Family_Name" type="text" class="form-control">
+                        <div class="alert alert-danger" *ngIf="Family_Name.touched && Family_Name.invalid">Family Name is required.</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="Plant_Name">Plant Name</label>
+                        <input autofocus required [(ngModel)]="product.Plant_Name" #Plant_Name="ngModel"  name="Plant_Name" id="Plant_Name" type="text" class="form-control">
+                        <div class="alert alert-danger" *ngIf="Plant_Name.touched && Plant_Name.invalid">Plant Name is required.</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="Bloom_Time">Bloom Time</label>
+                        <input autofocus required [(ngModel)]="product.Bloom_Time" #Bloom_Time="ngModel"  name="Bloom_Time" id="Bloom_Time" type="text" class="form-control">
+                        <div class="alert alert-danger" *ngIf="Bloom_Time.touched && Bloom_Time.invalid">Bloom Time is required.</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="Flower_Color">Flower Color</label>
+                        <input autofocus required [(ngModel)]="product.Flower_Color" #Flower_Color="ngModel"  name="Flower_Color" id="Flower_Color" type="text" class="form-control">
+                        <div class="alert alert-danger" *ngIf="Flower_Color.touched && Flower_Color.invalid">Flower_Color is required.</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="Size_at_Maturity">Size at Maturity</label>
+                        <input autofocus required [(ngModel)]="product.Size_at_Maturity" #Size_at_Maturity="ngModel"  name="Size_at_Maturity" id="Size_at_Maturity" type="text" class="form-control">
+                        <div class="alert alert-danger" *ngIf="Size_at_Maturity.touched && Size_at_Maturity.invalid">Size_at_Maturity is required.</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="Suitable_Site_Conditions">Suitable Site Conditions</label>
+                        <input autofocus required [(ngModel)]="product.Suitable_Site_Conditions" #Suitable_Site_Conditions="ngModel"  name="Suitable_Site_Conditions" id="Suitable_Site_Conditions" type="text" class="form-control">
+                        <div class="alert alert-danger" *ngIf="Suitable_Site_Conditions.touched && Suitable_Site_Conditions.invalid">Suitable Site Conditions is required.</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="Soil_Type">Soil Type</label>
+                        <input autofocus required [(ngModel)]="product.Soil_Type" #Soil_Type="ngModel"  name="Soil_Type" id="Soil_Type" type="text" class="form-control">
+                        <div class="alert alert-danger" *ngIf="Soil_Type.touched && Soil_Type.invalid">Soil_Type is required.</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="Water_Needs">Water Needs</label>
+                        <input autofocus required [(ngModel)]="product.Water_Needs" #Water_Needs="ngModel"  name="Water_Needs" id="Water_Needs" type="text" class="form-control">
+                        <div class="alert alert-danger" *ngIf="Water_Needs.touched && Water_Needs.invalid">Water Needs is required.</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="Latin_Name">Appropriate_Location</label>
+                        <input autofocus required [(ngModel)]="product.Appropriate_Location" #Appropriate_Location="ngModel"  name="Appropriate_Location" id="Appropriate_Location" type="text" class="form-control">
+                        <div class="alert alert-danger" *ngIf="Appropriate_Location.touched && Appropriate_Location.invalid">Appropriate Location is required.</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="Additional_Characteristices_Notes">Additional_Characteristices_Notes</label>
+                        <input autofocus required [(ngModel)]="product.Additional_Characteristices_Notes" #Additional_Characteristices_Notes="ngModel"  name="Additional_Characteristices_Notes" id="Additional_Characteristices_Notes" type="text" class="form-control">
+                        <div class="alert alert-danger" *ngIf="Additional_Characteristices_Notes.touched && Additional_Characteristices_Notes.invalid">Additional Characteristics Notes is required.</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="imageUrl">Image Url</label>
+                        <input autofocus required [(ngModel)]="product.imageUrl" #imageUrl="ngModel"  name="imageUrl" id="imageUrl" type="text" class="form-control">
+                        <div class="alert alert-danger" *ngIf="imageUrl.touched && imageUrl.invalid">Image Url is required.</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="price">Price</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">₹</span>
+                              </div>
+                              <input required [(ngModel)]="product.price" #price="ngModel" name="price" id="price" type="number" class="form-control">
+                        </div>
+                            <div class="alert alert-danger" *ngIf="price.touched && price.invalid">
+                                <div *ngIf="price.errors.required">Price is required.</div>
+                                <!-- <div *ngIf="price.errors.min">Price should be 0 or higher.</div> -->
+                            </div>
+                    </div>
+                    <div class="mt-2 mb-2">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                              <mat-checkbox
+                              class="example-margin"
+                              name="isAvailable"
+                              class="input-group-text"
+                              [(ngModel)]="product.isAvailable"
+                              #isAvailable="ngModel"
+                              (ngModelChange)="openDialog()"
+                              
+                              ><span>Is Available</span></mat-checkbox>
+                              </div>
+                        </div>
+                    </div>
+                    <div class="btn-group d-flex">
+                    <button class="btn btn-primary w-100" [disabled]="!f.valid">Save</button>
+                    <button *ngIf="id" class="btn btn-danger w-100" type="button" (click)="delete()">Delete</button>
+                </div>
+                </form>
+            </div>
+        </div>
+       
+    </div>
+    <div class="col-md-6">
+        <product-card [product]="product" [show-actions]="false"></product-card>
+    </div>
+   
+</div>

@@ -37,6 +37,7 @@ import { DeliveryPersonService } from './_services/delivery-person.service';
 import { OrderService } from './_services/order.service';
 import { ShoppingCartService } from './_services/shopping-cart.service';
 import { PasswordService } from './_services/password.service';
+import { ActiveDialogComponent } from './_dialogs/active-dialog/active-dialog.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import { PasswordService } from './_services/password.service';
     DeliveryPersonFormComponent,
     AdminProductsComponent,
     AdminOrdersComponent,
-    AdminDeliveryPersonComponent
+    AdminDeliveryPersonComponent,
+    ActiveDialogComponent
   ],
   imports: [
     BrowserModule,
