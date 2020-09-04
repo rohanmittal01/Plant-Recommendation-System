@@ -32,7 +32,7 @@
           <div ngbDropdownMenu class="dropdown-menu mr-auto" aria-labelledby="dropdown01" style="background-color: tomato;">
             <a class="dropdown-item" routerLink="/my/orders">My Orders</a>
             <a class="dropdown-item" *ngIf="authService.decodedToken.isAdmin" routerLink="/admin/orders">Manage Orders</a>
-            <a class="dropdown-item" *ngIf="authService.decodedToken.isAdmin" routerLink="/admin/products">Manage Product</a>
+            <a class="dropdown-item" *ngIf="authService.decodedToken.isAdmin" routerLink="/admin/products">Manage Plants</a>
             <a class="dropdown-item" *ngIf="authService.decodedToken.isAdmin" routerLink="/admin/categories">Manage Categories</a>
             <a class="dropdown-item" *ngIf="authService.decodedToken.isAdmin" routerLink="/admin/delivery-person">Manage Delivery Person</a>
             <div class="dropdown-divider"></div>

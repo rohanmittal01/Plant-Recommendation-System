@@ -20,11 +20,9 @@ export class ProductFormComponent implements OnInit {
               // tslint:disable-next-line: max-line-length
               private productService: ProductService, private alertify: AlertifyService, private authService: AuthService) {
 
-      this.getProductInfo();
       this.id = this.route.snapshot.paramMap.get('id');
-
-      
-
+      this.getProductInfo();
+      console.log(this.id);
      }
 
   ngOnInit(): void {
