@@ -31,5 +31,5 @@ export class DeliveryPersonService {
   delete(id){
     return this.http.delete(this.baseUrl + 'deliveryperson/' + id);
   }
-  
+
 }

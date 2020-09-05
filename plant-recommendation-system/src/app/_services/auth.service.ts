@@ -10,7 +10,7 @@ import { environment } from 'src/environments/environment';
 })
 export class AuthService {
 
-  baseUrl = environment.apiUrl +"users/"
+  baseUrl = environment.apiUrl + 'users/';
   jwtHelper = new JwtHelperService();
   decodedToken: any;
   // logged = false;
@@ -31,13 +31,13 @@ export class AuthService {
   }
 
   loggedIn(){
-    let token = localStorage.getItem('token');
+    const token = localStorage.getItem('token');
     return !this.jwtHelper.isTokenExpired(token);
   }
 
 
   logout(){
-    if(this.loggedIn()){
+    if (this.loggedIn()){
       localStorage.removeItem('token');
       // console.log('logged out!');
       this.alertify.warning('Logged Out!');

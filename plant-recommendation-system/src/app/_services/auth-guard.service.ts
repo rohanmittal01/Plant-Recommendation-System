@@ -8,6 +8,7 @@ import { AuthService } from './auth.service';
 })
 export class AuthGuardService {
 
+  // tslint:disable-next-line: max-line-length
   constructor(private alertify: AlertifyService, private authService: AuthService, private router: Router, private active: ActivatedRoute) { }
 
   canActivate(router, state: RouterStateSnapshot){
@@ -15,8 +16,8 @@ export class AuthGuardService {
     if (this.authService.loggedIn()){
       return true;
     }
-    this.alertify.error("You shall not pass!");
-    //this.router.navigate(['/login'], {queryParams: {returnUrl: state.url}});
+    this.alertify.error('You shall not pass!');
+    // this.router.navigate(['/login'], {queryParams: {returnUrl: state.url}});
     this.router.navigate(['/login']);
     return false;
   }

@@ -18,12 +18,12 @@ export class OrderSuccessService {
     console.log(this.id);
     console.log(this.authService.decodedToken._id);
     console.log(this.id);
+    // tslint:disable-next-line: triple-equals
     if (this.id == this.authService.decodedToken._id){
       return true;
     }
-    return true;
-    this.alertify.error("You shall not pass!");
-    //this.router.navigate(['/login'], {queryParams: {returnUrl: state.url}});
+    this.alertify.error('You shall not pass!');
+    // this.router.navigate(['/login'], {queryParams: {returnUrl: state.url}});
     this.router.navigate(['/']);
     return false;
   }
