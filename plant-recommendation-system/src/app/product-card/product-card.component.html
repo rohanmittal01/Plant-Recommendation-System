@@ -1,8 +1,11 @@
-<div *ngIf="product.title" class="card">
+<div *ngIf="product.Common_Name" class="card">
     <img class="card-img-top" [src]="product.imageUrl" *ngIf="product.imageUrl" alt="{{product.title}}" />
     <div class="card-body">
-      <h6 class="card-title">{{ product.title }}</h6>
-      <p class="card-text">{{ product.price | currency: "INR" }}</p>
+      <h6 class="card-title" style="text-align: center;"><b>{{ product.Common_Name }}</b></h6>
+      <p class="card-text"><b>Type:</b> {{ product.Plant_Type}}</p>
+      <p class="card-text"><b>Bloom:</b> {{ product.Bloom_Time}}</p>
+      <p class="card-text"><b>Price:</b> {{ product.price | currency: "INR" }}</p>
+    
       <p *ngIf="!product.isAvailable" class="card-text" style="color: red">Currently Unavailable</p>
     </div>
 

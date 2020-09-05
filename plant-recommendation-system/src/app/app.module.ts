@@ -38,6 +38,7 @@ import { OrderService } from './_services/order.service';
 import { ShoppingCartService } from './_services/shopping-cart.service';
 import { PasswordService } from './_services/password.service';
 import { ActiveDialogComponent } from './_dialogs/active-dialog/active-dialog.component';
+import { ProductFilterComponent } from './products/product-filter/product-filter.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { ActiveDialogComponent } from './_dialogs/active-dialog/active-dialog.co
     AdminProductsComponent,
     AdminOrdersComponent,
     AdminDeliveryPersonComponent,
-    ActiveDialogComponent
+    ActiveDialogComponent,
+    ProductFilterComponent
   ],
   imports: [
     BrowserModule,
