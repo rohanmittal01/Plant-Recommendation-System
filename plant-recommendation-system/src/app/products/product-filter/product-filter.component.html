@@ -1,6 +1,10 @@
 <div class="sticky-top">
-    <p>Choose Availability</p>
+    <div class="list-group mt-3">
+        <p>Choose Availability</p>
     <a routerLink="/" class="list-group-item list-group-item-action" [queryParams]='{availability: "available"}' [class.active]="availability == 'available'">Available Only</a>
+        <a routerLink="/" class="list-group-item list-group-item-action" [class.active]="!availability && range">All Plants</a>
+    </div>
+    
     <div class=" mt-2">
         <p>Choose Range (in &#8377;)</p>
         <div class="d-flex" [class.active]="range">
@@ -9,8 +13,5 @@
             <button class="btn btn-success" style="width: 60px; height: 40px" (click)="print()" routerLink="/" [queryParams]="{minim: range.min, maxim: range.max}" style="color: white">Go</button>
         </div>
     </div>
-    <div class="list-group mt-3">
-        
-        <a routerLink="/" class="list-group-item list-group-item-action" [class.active]="!availability && range">All Plants</a>
-    </div>
+    
 </div>

@@ -62,8 +62,9 @@ export class ProductCardComponent implements OnInit {
     // tslint:disable-next-line: triple-equals
     // console.log(this.cartService.cart);
     // tslint:disable-next-line: triple-equals
+    console.log('here first');
     if (this.cartService.cart != [] && this.cartService.cart != undefined) {
-      // console.log('hee')
+      console.log('hee')
       let data;
       this.productService.get(this.product._id).subscribe((x) => {
         data = x;
@@ -79,10 +80,11 @@ export class ProductCardComponent implements OnInit {
         );
       });
     }else{
-      // console.log('heê333333')
+      console.log('heê333333');
       let data;
       this.productService.get(this.product._id).subscribe((x) => {
         data = x;
+        console.log(x);
         data.quantity = 1;
         data.totalPrice = data.price;
         data = {
