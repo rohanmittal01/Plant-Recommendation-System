@@ -39,6 +39,10 @@ import { ShoppingCartService } from './_services/shopping-cart.service';
 import { PasswordService } from './_services/password.service';
 import { ActiveDialogComponent } from './_dialogs/active-dialog/active-dialog.component';
 import { ProductFilterComponent } from './products/product-filter/product-filter.component';
+import { CheckOutComponent } from './check-out/check-out.component';
+import { ShoppingCartSummaryComponent } from './shopping-cart-summary/shopping-cart-summary.component';
+import { RouteService } from './_guard/route.service';
+import { PaymentGatewayComponent } from './payment-gateway/payment-gateway.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +61,10 @@ import { ProductFilterComponent } from './products/product-filter/product-filter
     AdminOrdersComponent,
     AdminDeliveryPersonComponent,
     ActiveDialogComponent,
-    ProductFilterComponent
+    ProductFilterComponent,
+    CheckOutComponent,
+    ShoppingCartSummaryComponent,
+    PaymentGatewayComponent
   ],
   imports: [
     BrowserModule,
@@ -84,7 +91,7 @@ import { ProductFilterComponent } from './products/product-filter/product-filter
       {path: 'login', component: LoginComponent},
       {path: 'register', component: RegisterComponent},
 
-      // {path: 'check-out', component: CheckOutComponent, canActivate: [AuthGuardService, RouteService]},
+      {path: 'check-out', component: CheckOutComponent, canActivate: [AuthGuardService, RouteService]},
       // {path: 'payment-gateway', component: PaymentGatewayComponent, canActivate: [AuthGuardService, RouteService]},
       // {path: 'order-success', component: OrderSuccessComponent, canActivate: [AuthGuardService, RouteService]},
       // {path: 'my/orders', component: MyOrdersComponent, canActivate: [AuthGuardService]},
