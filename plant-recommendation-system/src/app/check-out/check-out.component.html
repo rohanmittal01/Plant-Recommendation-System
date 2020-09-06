@@ -1,7 +1,7 @@
 <h2>Shipping</h2>
 <div class="row">
   <div class="col-md-6 mt-2">
-    <form *ngIf="!passwordSent" #f="ngForm" (ngSubmit)="addButtonPressed()">
+    <form *ngIf="!passwordSent" #f="ngForm" (ngSubmit)="addButtonPressed()" class="card" style="background-color: white; padding: 15px; border: 1px solid white;">
       <div class="form-group">
         <label for="">Name</label>
         <input
@@ -11,11 +11,12 @@
           [(ngModel)]="shipping.name"
           type="text"
           class="form-control"
+          placeholder="Enter Name"
           required
         />
-        <div class="alert alert-danger" *ngIf="name.touched && name.invalid">
+        <!-- <div class="alert alert-danger" *ngIf="name.touched && name.invalid">
           <div *ngIf="name.errors.required">Name is required.</div>
-        </div>
+        </div> -->
       </div>
       <div class="form-group">
         <label for="">Address Line 1</label>
@@ -25,11 +26,12 @@
           [(ngModel)]="shipping.addressLine1"
           type="text"
           class="form-control"
+          placeholder="Address Line 1"
           required
         />
-        <div class="alert alert-danger" *ngIf="addressLine1.touched && addressLine1.invalid">
+        <!-- <div class="alert alert-danger" *ngIf="addressLine1.touched && addressLine1.invalid">
           <div *ngIf="addressLine1.errors.required">Address Line 1 is required.</div>
-        </div>
+        </div> -->
       </div>
       <div class="form-group">
         <label for="">Address Line 2</label>
@@ -40,16 +42,17 @@
           type="text"
           class="form-control"
           placeholder="Line 2"
+          placeholder="Address Line 2"
           required
         />
-        <div
+        <!-- <div
           class="alert alert-danger"
           *ngIf="addressLine2.touched && addressLine2.invalid"
         >
           <div *ngIf="addressLine2.errors.required">
             Address Line 2 is required.
           </div>
-        </div>
+        </div> -->
       </div>
       <div class="form-group">
         <label for="">City</label>
@@ -59,11 +62,12 @@
           [(ngModel)]="shipping.city"
           type="text"
           class="form-control"
+          placeholder="Enter City"
           required
         />
-        <div class="alert alert-danger" *ngIf="city.touched && city.invalid">
+        <!-- <div class="alert alert-danger" *ngIf="city.touched && city.invalid">
           <div *ngIf="city.errors.required">City is required.</div>
-        </div>
+        </div> -->
       </div>
       <div class="form-group">
         <label for="">State</label>
@@ -73,11 +77,12 @@
           [(ngModel)]="shipping.state"
           type="text"
           class="form-control"
+          placeholder="Enter State"
           required
         />
-        <div class="alert alert-danger" *ngIf="state.touched && state.invalid">
+        <!-- <div class="alert alert-danger" *ngIf="state.touched && state.invalid">
           <div *ngIf="state.errors.required">State is required.</div>
-        </div>
+        </div> -->
       </div>
       <div class="form-group">
         <label for="">Country</label>
@@ -87,11 +92,12 @@
           [(ngModel)]="shipping.country"
           type="text"
           class="form-control"
+          placeholder="Enter Country"
           required
         />
-        <div class="alert alert-danger" *ngIf="country.touched && country.invalid">
+        <!-- <div class="alert alert-danger" *ngIf="country.touched && country.invalid">
           <div *ngIf="country.errors.required">Country is required.</div>
-        </div>
+        </div> -->
       </div>
       <div class="form-group">
         <label for="">Phone Number</label>
@@ -101,13 +107,14 @@
           [(ngModel)]="shipping.phoneNumber"
           type="text"
           class="form-control"
+          placeholder="Enter Phone Number"
           required
         />
-        <div class="alert alert-danger" *ngIf="phoneNumber.touched && phoneNumber.invalid">
+        <!-- <div class="alert alert-danger" *ngIf="phoneNumber.touched && phoneNumber.invalid">
           <div *ngIf="phoneNumber.errors.required">Phone Number is required.</div>
-        </div>
+        </div> -->
       </div>
-      <button type="submit" class="btn btn-primary" [disabled]="!f.valid || totalPrice==0">
+      <button type="submit" class="btn" [disabled]="!f.valid || totalPrice==0" style="background-color: rgb(253,182,12);">
         Place Order
       </button>
       <p *ngIf="totalPrice==0" style="color: red">Your shopping cart is empty!</p>

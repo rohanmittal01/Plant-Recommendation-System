@@ -1,5 +1,14 @@
 <h1>Your Orders</h1>
 <div>
+    <select [(ngModel)]="dateFilterVar" value="All Days" #dateFilter="ngModel" name="dateFilter" id="dateFilter" type="text" class="form-control">
+        <option value="All Days" selected="selected">All Days</option>
+        <option value="last 30 days">Last 30 Days</option>
+        <option value="last 180 days">Last 180 Days</option>
+        <option value="2020">2020</option>
+        <option value="2019">2019</option>
+        <option value="2018">2018</option>
+    </select>
+    <button mat-button matSuffix mat-icon-button (click)="dateFiltering()">Butt</button>
     <mat-form-field class="search-form-field">
       <mat-label>Search</mat-label>
       <input

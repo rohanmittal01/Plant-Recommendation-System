@@ -36,13 +36,13 @@
         <td>
         <div class="row no-gutters">
           <div class="col-2" (click)="removeFromCart(cartData)">
-            <button style="display: inline; text-align: center;" class="btn btn-secondary">-</button>
+            <button style="display: inline; text-align: center;" class="btn btn-secondary" style="background-color: green;">-</button>
           </div>
           <div class="col text-center">
             {{ cartData.quantity }} in cart
           </div>
           <div class="col-2" (click)="addToCart(cartData)">
-            <button class="btn btn-secondary">+</button>
+            <button class="btn btn-secondary" style="background-color: green;">+</button>
           </div>
         </div>
       </td>
@@ -66,9 +66,9 @@
       </tr>
     </tfoot>
   </table>
-  <div style="background-color: cadetblue;">
-  <div style="margin:auto; width: 280px; padding: 20px; ">
-  <a *ngIf="shoppingCartItemCount" (click)="checkOut()" class="btn btn-primary btn-sm" style="color: white">Check Out</a>
+  <div style="background-color: brown;">
+  <div style="margin:auto; width: 280px; padding: 10px; ">
+  <a *ngIf="shoppingCartItemCount" (click)="checkOut()" class="btn btn-success btn-sm" style="color: white">Check Out</a>
   <button *ngIf="shoppingCartItemCount" (click)="clearCart()" class="btn btn-danger btn-sm ml-2">
     Clear Shopping Cart
   </button>

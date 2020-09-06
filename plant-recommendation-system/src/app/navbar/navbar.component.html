@@ -30,10 +30,10 @@
             {{authService.decodedToken.name}}
           </a>
           <div ngbDropdownMenu class="dropdown-menu mr-auto" aria-labelledby="dropdown01" style="background-color: white;">
-            <a class="dropdown-item" routerLink="/my/orders">My Orders</a>
-            <a class="dropdown-item" *ngIf="authService.decodedToken.isAdmin" routerLink="/admin/orders">Manage Orders</a>
-            <a class="dropdown-item" *ngIf="authService.decodedToken.isAdmin" routerLink="/admin/products">Manage Plants</a>
-            <a class="dropdown-item" *ngIf="authService.decodedToken.isAdmin" routerLink="/admin/delivery-person">Manage Delivery Person</a>
+            <a class="dropdown-item" routerLink="/my/orders"><i class="fa fas fa-shopping-bag"></i>  My Orders</a>
+            <a class="dropdown-item" *ngIf="authService.decodedToken.isAdmin" routerLink="/admin/orders"><i class="fa fas fa-tasks"></i>  Manage Orders</a>
+            <a class="dropdown-item" *ngIf="authService.decodedToken.isAdmin" routerLink="/admin/products"><i class="fa fas fa-list-alt"></i>  Manage Plants</a>
+            <a class="dropdown-item" *ngIf="authService.decodedToken.isAdmin" routerLink="/admin/delivery-person"><i class="fa fas fa-list-alt"></i>  Manage Delivery Person</a>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" style="color:brown" (click)="logout()"> Log Out</a>
           </div>
