@@ -39,7 +39,7 @@ export class ProductFormComponent implements OnInit {
   }
   save(){
     console.log(this.product);
-    if(this.id){
+    if (this.id){
       this.product.modifiedDate = new Date(Date());
       this.product.modifiedBy = this.authService.decodedToken.email;
       this.productService.update(this.id, this.product).subscribe(x => {
@@ -47,14 +47,14 @@ export class ProductFormComponent implements OnInit {
         this.router.navigate(['/admin/products']);
       }, error => {
         this.alertify.error('Product could not be updated!');
-      })
+      });
     }else{
-      this.product.dateAdded = new Date(Date())
+      this.product.dateAdded = new Date(Date());
       this.product.addedBy = this.authService.decodedToken.email;
-      this.product.modifiedDate = new Date(Date())
+      this.product.modifiedDate = new Date(Date());
       this.product.modifiedBy = this.authService.decodedToken.email;
       console.log(this.product);
-    this.productService.create(this.product).subscribe(x => {
+      this.productService.create(this.product).subscribe(x => {
       this.alertify.success('Product Added Successfully!');
       this.router.navigate(['/admin/products']);
     }, error => {
@@ -75,11 +75,13 @@ export class ProductFormComponent implements OnInit {
 
   openDialog(): void {
     if (this.id) {
-      let dialogRef = this.dialog.open(ActiveDialogComponent);
+      const dialogRef = this.dialog.open(ActiveDialogComponent);
       dialogRef.afterClosed().subscribe((result) => {
         console.log('Dialog Result: ' + result);
+        // tslint:disable-next-line: triple-equals
         if (result == 'Yes') {
           this.alertify.success('Deliveryman activation status Confirmed.');
+        // tslint:disable-next-line: triple-equals
         } else if (result == 'No') {
           // this.search();
           this.product.isAvailable = !this.product.isAvailable;

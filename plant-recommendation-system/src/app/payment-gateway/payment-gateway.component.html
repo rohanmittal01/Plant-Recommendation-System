@@ -40,11 +40,11 @@
         <div class="row mt-3" style="font-weight: light;">
           <div class="col-4" style="text-align: right;">Number:</div>
           <div class="col-6">
-            <input required [(ngModel)]="card.number" #cardNumber="ngModel" name="cardNumber" id="cardNumber" type="number" placeholder="Credit Card Number" class="form-control"  (keyup)="validate()" minlength=13 maxlength=19>
+            <input required [(ngModel)]="card.number" #cardNumber="ngModel" name="cardNumber" id="cardNumber" type="number" placeholder="Credit Card Number" class="form-control"  (keyup)="validate()" minlength="13" maxlength="19">
             <div class="alert" style="color: red" *ngIf="cardNumber.touched && cardNumber.invalid">
               <div>Please enter a valid credit card number (digits only, no dashes or spaces).</div>
             </div>
-            <div *ngIf="cardError" style="color: red">Please enter a valid credit card number (digits only, no dashes or spaces).</div>
+            <div *ngIf="cardError && cardNumber.valid" style="color: red">Please enter a valid credit card number (digits only, no dashes or spaces).</div>
           </div>
         </div>
   
@@ -59,11 +59,11 @@
               class="form-control"
               required
             />
-            <div class="alert alert-danger" *ngIf="name.touched && name.invalid">
+            <!-- <div class="alert alert-danger" *ngIf="name.touched && name.invalid">
               <div *ngIf="name.errors.required">
                 Cardholder's Name is required.
               </div>
-            </div>
+            </div> -->
           </div>
         </div>
         <div class="row mt-3">

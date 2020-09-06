@@ -16,9 +16,9 @@
                               </div>
                             <input autofocus required [(ngModel)]="deliveryperson.name" #name="ngModel" name="name" id="name" type="text" class="form-control">
                         </div>
-                            <div class="alert alert-danger" *ngIf="name.touched && name.invalid">
+                            <!-- <div class="alert alert-danger" *ngIf="name.touched && name.invalid">
                                 <div *ngIf="name.errors.required">Name is required.</div>
-                            </div>
+                            </div> -->
                     </div>
                     <div class="form-group">
                         <label for="gender">Gender</label>
@@ -28,7 +28,7 @@
                             <option>Female</option>
                             <option>Others</option>
                         </select>
-                        <div class="alert alert-danger" *ngIf="gender.touched && gender.invalid">Gender is required.</div>
+                        <!-- <div class="alert alert-danger" *ngIf="gender.touched && gender.invalid">Gender is required.</div> -->
                     </div>
                     <div class="form-group">
                         <!-- <label for="name">Name</label> -->
@@ -38,9 +38,9 @@
                               </div>
                             <input required [(ngModel)]="deliveryperson.phoneNumber" #phoneNumber="ngModel" name="phoneNumber" id="phoneNumber" type="number" class="form-control">
                         </div>
-                            <div class="alert" *ngIf="phoneNumber.touched && phoneNumber.invalid">
+                            <!-- <div class="alert" *ngIf="phoneNumber.touched && phoneNumber.invalid">
                                 <div *ngIf="phoneNumber.errors.required">Phone Number is required.</div>
-                            </div>
+                            </div> -->
                     </div>
                     <div class="form-group">
                         <!-- <label for="name">Name</label> -->
@@ -50,9 +50,9 @@
                               </div>
                             <input required [(ngModel)]="address.addressLine1" #addressLine1="ngModel" name="addressLine1" id="addressLine1" type="text" class="form-control">
                         </div>
-                            <div class="alert alert-danger" *ngIf="addressLine1.touched && addressLine1.invalid">
+                            <!-- <div class="alert alert-danger" *ngIf="addressLine1.touched && addressLine1.invalid">
                                 <div *ngIf="addressLine1.errors.required">Address is required.</div>
-                            </div>
+                            </div> -->
                     </div>
                     <div class="form-group">
                         <!-- <label for="name">Name</label> -->
@@ -69,11 +69,11 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text">City *</span>
                               </div>
-                            <input [(ngModel)]="address.city" #city="ngModel" name="city" id="city" type="text" class="form-control">
+                            <input [(ngModel)]="address.city" #city="ngModel" name="city" id="city" type="text" class="form-control" required>
                         </div>
-                        <div class="alert alert-danger" *ngIf="city.touched && city.invalid">
+                        <!-- <div class="alert alert-danger" *ngIf="city.touched && city.invalid">
                             <div *ngIf="city.errors.required">City is required.</div>
-                        </div>
+                        </div> -->
                     </div>
                     <div class="form-group">
                         <!-- <label for="name">Name</label> -->
@@ -81,11 +81,11 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text">State *</span>
                               </div>
-                            <input [(ngModel)]="address.state" #state="ngModel" name="state" id="state" type="text" class="form-control">
+                            <input [(ngModel)]="address.state" #state="ngModel" name="state" id="state" type="text" class="form-control" required>
                         </div>
-                        <div class="alert alert-danger" *ngIf="state.touched && state.invalid">
+                        <!-- <div class="alert alert-danger" *ngIf="state.touched && state.invalid">
                             <div *ngIf="state.errors.required">State is required.</div>
-                        </div>
+                        </div> -->
                     </div>
                     <div class="form-group">
                         <!-- <label for="name">Name</label> -->
@@ -93,11 +93,11 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text">Country *</span>
                               </div>
-                            <input [(ngModel)]="address.country" #country="ngModel" name="country" id="country" type="text" class="form-control">
+                            <input [(ngModel)]="address.country" #country="ngModel" name="country" id="country" type="text" class="form-control" required>
                         </div>
-                        <div class="alert alert-danger" *ngIf="country.touched && country.invalid">
+                        <!-- <div class="alert alert-danger" *ngIf="country.touched && country.invalid">
                             <div *ngIf="country.errors.required">Country is required.</div>
-                        </div>
+                        </div> -->
                     </div>
                     <div class="mt-2 mb-2">
                         <div class="input-group">
