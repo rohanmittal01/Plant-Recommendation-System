@@ -43,6 +43,7 @@ import { CheckOutComponent } from './check-out/check-out.component';
 import { ShoppingCartSummaryComponent } from './shopping-cart-summary/shopping-cart-summary.component';
 import { RouteService } from './_guard/route.service';
 import { PaymentGatewayComponent } from './payment-gateway/payment-gateway.component';
+import { OrderSuccessComponent } from './order-success/order-success.component';
 
 @NgModule({
   declarations: [
@@ -64,7 +65,8 @@ import { PaymentGatewayComponent } from './payment-gateway/payment-gateway.compo
     ProductFilterComponent,
     CheckOutComponent,
     ShoppingCartSummaryComponent,
-    PaymentGatewayComponent
+    PaymentGatewayComponent,
+    OrderSuccessComponent
   ],
   imports: [
     BrowserModule,
@@ -92,8 +94,8 @@ import { PaymentGatewayComponent } from './payment-gateway/payment-gateway.compo
       {path: 'register', component: RegisterComponent},
 
       {path: 'check-out', component: CheckOutComponent, canActivate: [AuthGuardService, RouteService]},
-      // {path: 'payment-gateway', component: PaymentGatewayComponent, canActivate: [AuthGuardService, RouteService]},
-      // {path: 'order-success', component: OrderSuccessComponent, canActivate: [AuthGuardService, RouteService]},
+      {path: 'payment-gateway', component: PaymentGatewayComponent, canActivate: [AuthGuardService, RouteService]},
+      {path: 'order-success', component: OrderSuccessComponent, canActivate: [AuthGuardService, RouteService]},
       // {path: 'my/orders', component: MyOrdersComponent, canActivate: [AuthGuardService]},
 
      {path: 'admin/products/new', component: ProductFormComponent},
