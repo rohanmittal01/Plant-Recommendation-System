@@ -96,7 +96,7 @@ import { OrderSuccessComponent } from './order-success/order-success.component';
       {path: 'check-out', component: CheckOutComponent, canActivate: [AuthGuardService, RouteService]},
       {path: 'payment-gateway', component: PaymentGatewayComponent, canActivate: [AuthGuardService, RouteService]},
       {path: 'order-success', component: OrderSuccessComponent, canActivate: [AuthGuardService, RouteService]},
-      // {path: 'my/orders', component: MyOrdersComponent, canActivate: [AuthGuardService]},
+      {path: 'my/orders', component: MyOrdersComponent, canActivate: [AuthGuardService]},
 
      {path: 'admin/products/new', component: ProductFormComponent},
       {path: 'admin/products/:id', component: ProductFormComponent},
