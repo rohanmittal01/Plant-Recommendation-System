@@ -13,7 +13,6 @@ def predict():
     from sklearn.externals import joblib
     model = joblib.load('plant_recommendation_model.ml')
     pred_plant = model.predict([[(request.args['Bloom_Time']),
-                            (request.args['Flower_Color']),
                             (request.args['Size_at_Maturity']),
                             (request.args['Suitable_Site_Conditions']),
                             (request.args['Soil_Type']),

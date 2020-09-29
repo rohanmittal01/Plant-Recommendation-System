@@ -22,6 +22,8 @@ export class ProductsComponent implements OnInit {
   minRange;
   maxRange;
   range;
+  familyName=""
+  filterButtonClicked=true;
   constructor(
     private route: ActivatedRoute,
     private productService: ProductService,
@@ -30,6 +32,7 @@ export class ProductsComponent implements OnInit {
     // console.log('-------------------------------');
     this.getCart();
     this.getProducts();
+    this.familyName = productService.familyName;
   }
 
   ngOnInit() {}

@@ -1,0 +1,110 @@
+['plant_type', 'bloom_time', 'flower_color', 'size_at_maturity', 'suitable_site_conditions', 'soil_type', 'water_needs', 'appropriate_location']
+
+<div>
+    <form #f="ngForm" (submit)="save()">
+        <div class="form-group">
+            <label for="Plant_Type">Plant Type</label>
+            <select autofocus required [(ngModel)]="filter.plant_type" #Plant_Type="ngModel"  name="Plant_Type" id="Plant_Type" type="text" class="form-control">
+                <option value="Perennial">Perennial </option> 
+                <option value="Grass">Grass</option> 
+                <option value="Succulent">Succulent</option>     
+                <option value="Shrub (evergreen)">Shrub (evergreen)</option>     
+                <option value="Shrub (deciduous)">Shrub (deciduous)</option>
+                <option value="Tree (evergreen)">Tree (evergreen)</option>  
+                <option value="Tree (deciduous)">Tree (deciduous)</option>  
+                <option value="Vine">Vine</option>  
+                <option value="Annual">Annual</option>  
+          </select>
+            <!-- <div class="alert alert-danger" *ngIf="Plant_Type.touched && Plant_Type.invalid">Plant Type is required.</div> -->
+        </div>
+        <div class="form-group">
+            <label for="Bloom_Time">Bloom Time</label>
+            <select autofocus required [(ngModel)]="filter.bloom_time" #Bloom_Time="ngModel"  name="Bloom_Time" id="Bloom_Time" type="text" class="form-control">
+                <option value="Summer">Summer</option> 
+                <option value="Spring">Spring</option> 
+                <option value="Winter">Winter</option> 
+                <option value="Fall">Fall</option> 
+                <option value="Fall;Winter">Fall and Winter</option> 
+                <option value="Summer;Fall">Summer and Fall</option> 
+                <option value="Summer;Fall;Winter">Summer, Fall and Winter</option> 
+                <option value="Spring;Summer ">Spring and Summer</option> 
+                <option value="Spring;Winter">Spring and Winter</option> 
+                <option value="Spring;Summer;Fall">Spring, Summer and Fall</option> 
+                <option value="Spring;Summer;Winter">Spring, Summer and Winter</option> 
+                <option value="Spring;Fall">Spring and Fall</option> 
+                <option value="Spring;Summer;Fall;Winter ">All Seasons</option> 
+            </select>
+            <!-- <div class="alert alert-danger" *ngIf="Bloom_Time.touched && Bloom_Time.invalid">Bloom Time is required.</div> -->
+        </div>
+        <div class="form-group">
+            <label for="Size_at_Maturity">Size at Maturity</label>
+            <select autofocus required [(ngModel)]="filter.size_at_maturity" #Size_at_Maturity="ngModel"  name="Size_at_Maturity" id="Size_at_Maturity" type="text" class="form-control">
+                <option value="< 1 ft">less than 1 ft</option> 
+                <option value="1-3 ft">1-3 ft</option> 
+                <option value="7-12 ft">7-12 ft</option>     
+                <option value="13-24 ft">13-24 ft</option>     
+                <option value="More than 24 ft">> 24 ft</option>  
+          </select>
+            <!-- <div class="alert alert-danger" *ngIf="Size_at_Maturity.touched && Size_at_Maturity.invalid">Size_at_Maturity is required.</div> -->
+        </div>
+        <div class="form-group">
+            <label for="Suitable_Site_Conditions">Suitable Site Conditions</label>
+            <select autofocus required [(ngModel)]="filter.suitable_site_conditions" #Suitable_Site_Conditions="ngModel"  name="Suitable_Site_Conditions" id="Suitable_Site_Conditions" type="text" class="form-control">
+                <option value="Sun">Sun</option>
+                <option value="Sun;Part Shade">Sun or Part Shade</option>
+                <option value="Sun;Shade">Sun or Shade</option>
+                <option value="Part Shade">Part Shade</option>
+                <option value="Part Shade;Shade">Part Shade or Shade</option>
+                <option value="Shade">Shade</option>
+                <option value="Sun;Part Shade;Shade">Sun or Part Shade or Shade</option>
+                
+            </select>
+            <!-- <div class="alert alert-danger" *ngIf="Suitable_Site_Conditions.touched && Suitable_Site_Conditions.invalid">Suitable Site Conditions is required.</div> -->
+        </div>
+        <div class="form-group">
+            <label for="Soil_Type">Soil Type</label>
+            <select autofocus required [(ngModel)]="filter.soil_type" #Soil_Type="ngModel"  name="Soil_Type" id="Soil_Type" type="text" class="form-control">
+                <option value="Sand">Sand</option> 
+                <option value="Clay">Clay</option> 
+                <option value="Loam">Loam</option> 
+                <option value="Rock">Rock</option>
+                <option value="Sand;Loam">Sand and Loam</option> 
+                <option value="Clay;Sand">Sand and Clay</option>  
+                <option value="Sand;Loam;Chalk">Sand, Loam and Chalk </option> 
+                <option value="Clay;Loam;Sand">Sand, Loam and Clay</option> 
+                <option value="Clay;Loam">Clay and Loam</option>
+                <option value="Clay;Rock">Clay and Rock</option>
+                <option value="Clay;Loam;Rock">Clay, Loam and Rock</option> 
+                <option value="Clay;Loam;Sand;Rock">Clay, Loam, Sand and Rock</option> 
+                <option value="Clay;Loam;Sand;Chalk">Clay, Loam, Sand and Chalk</option> 
+            </select>
+            <!-- <div class="alert alert-danger" *ngIf="Soil_Type.touched && Soil_Type.invalid">Soil_Type is required.</div> -->
+        </div>
+        <div class="form-group">
+            <label for="Water_Needs">Water Needs</label>
+            <select autofocus required [(ngModel)]="filter.water_needs" #Water_Needs="ngModel"  name="Water_Needs" id="Water_Needs" type="text" class="form-control">
+                <option value="None">None</option>
+                <option value="Low">Low</option>
+                <option value="Moderate">Moderate</option>
+            </select>
+            <!-- <div class="alert alert-danger" *ngIf="Water_Needs.touched && Water_Needs.invalid">Water Needs is required.</div> -->
+        </div>
+        <div class="form-group">
+            <label for="Latin_Name">Appropriate_Location</label>
+            <select autofocus required [(ngModel)]="filter.appropriate_location" #Appropriate_Location="ngModel"  name="Appropriate_Location" id="Appropriate_Location" type="text" class="form-control">
+                <option value="Garden">Garden</option>
+                <option value="Garden;Sidewalk">Garden or Sidewalk</option>
+                <option value="Garden;Roof">Garden or Roof</option>
+                <option value="Garden;Sidewalk;Roof">Garden, Sidewalk or Roof</option>
+                <option value="Sidewalk">Sidewalk</option>
+                <option value="Forest">Forest</option>
+            </select>
+            <!-- <div class="alert alert-danger" *ngIf="Appropriate_Location.touched && Appropriate_Location.invalid">Appropriate Location is required.</div> -->
+        </div>
+        
+        <div class="btn-group d-flex">
+        <button class="btn btn-primary w-100" [disabled]="!f.valid">Save</button>
+    </div>
+
+    </form>
+</div>

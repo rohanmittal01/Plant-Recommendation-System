@@ -44,6 +44,7 @@ import { ShoppingCartSummaryComponent } from './shopping-cart-summary/shopping-c
 import { RouteService } from './_guard/route.service';
 import { PaymentGatewayComponent } from './payment-gateway/payment-gateway.component';
 import { OrderSuccessComponent } from './order-success/order-success.component';
+import { ProductsFilterFormComponent } from './products/products-filter-form/products-filter-form.component';
 
 @NgModule({
   declarations: [
@@ -66,7 +67,8 @@ import { OrderSuccessComponent } from './order-success/order-success.component';
     CheckOutComponent,
     ShoppingCartSummaryComponent,
     PaymentGatewayComponent,
-    OrderSuccessComponent
+    OrderSuccessComponent,
+    ProductsFilterFormComponent
   ],
   imports: [
     BrowserModule,

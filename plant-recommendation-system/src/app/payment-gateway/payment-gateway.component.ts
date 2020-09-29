@@ -65,7 +65,6 @@ export class PaymentGatewayComponent implements OnInit {
     this.dateError = false;
     const c = String(this.card.number);
     this.checkDate();
-
   }
 
   checkDate(){

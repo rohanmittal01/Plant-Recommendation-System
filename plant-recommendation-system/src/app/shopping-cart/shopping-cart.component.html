@@ -1,4 +1,5 @@
-<h1>Shopping Cart</h1>
+<div style="background: rgba(0, 0, 0, 0.6); padding:10px; color: white; border-radius: 10px;">
+  <h1>Shopping Cart</h1>
 <ng-container>
   <p *ngIf="!dataRetrieved">
     Loading...
@@ -15,7 +16,7 @@
     </pre>
 
   </ng-template>
-  <table *ngIf="shoppingCartItemCount" class="table">
+  <table *ngIf="shoppingCartItemCount" class="table" style="color: white;">
     <thead>
       <tr>
         <th></th>
@@ -66,8 +67,8 @@
       </tr>
     </tfoot>
   </table>
-  <div style="background-color: brown;">
-  <div style="margin:auto; width: 280px; padding: 10px; ">
+  <div style="background-color: rgba(253,182,12,1); color: white">
+  <div style="margin:auto; width: 280px; padding: 10px; color:white">
   <a *ngIf="shoppingCartItemCount" (click)="checkOut()" class="btn btn-success btn-sm" style="color: white">Check Out</a>
   <button *ngIf="shoppingCartItemCount" (click)="clearCart()" class="btn btn-danger btn-sm ml-2">
     Clear Shopping Cart
@@ -81,11 +82,11 @@
 
 
 <h4 class="mt-4" *ngIf="unavailableCart">Unavialable Items</h4>
-<ng-container *ngIf="unavailableCart">
+<ng-container *ngIf="unavailableCart" style="color: white;">
   <p *ngIf="!dataRetrieved">
     Loading...
   </p>
-  <table *ngIf="shoppingCartItemCount" class="table">
+  <table *ngIf="shoppingCartItemCount" class="table" style="color: white;">
     <thead>
       <tr>
         <th></th>
@@ -116,3 +117,4 @@
     </tbody>
   </table>
 </ng-container>
+</div>

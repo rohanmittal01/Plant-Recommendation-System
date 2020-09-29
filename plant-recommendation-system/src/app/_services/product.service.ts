@@ -8,7 +8,7 @@ import { HttpClient } from '@angular/common/http';
 export class ProductService {
 
   baseUrl = environment.apiUrl;
-
+  familyName="";
   constructor(private http: HttpClient) { }
 
   create(product){
