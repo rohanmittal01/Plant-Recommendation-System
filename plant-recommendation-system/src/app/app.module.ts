@@ -45,6 +45,7 @@ import { RouteService } from './_guard/route.service';
 import { PaymentGatewayComponent } from './payment-gateway/payment-gateway.component';
 import { OrderSuccessComponent } from './order-success/order-success.component';
 import { ProductsFilterFormComponent } from './products/products-filter-form/products-filter-form.component';
+import { ProductDetailsComponent } from './product-details/product-details.component';
 
 @NgModule({
   declarations: [
@@ -68,7 +69,8 @@ import { ProductsFilterFormComponent } from './products/products-filter-form/pro
     ShoppingCartSummaryComponent,
     PaymentGatewayComponent,
     OrderSuccessComponent,
-    ProductsFilterFormComponent
+    ProductsFilterFormComponent,
+    ProductDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -91,6 +93,7 @@ import { ProductsFilterFormComponent } from './products/products-filter-form/pro
     RouterModule.forRoot([
       {path: '', component: ProductsComponent, canActivate: [AuthGuardService]},
       {path: 'products', component: ProductsComponent, canActivate: [AuthGuardService]},
+      {path: 'products/:id', component: ProductDetailsComponent, canActivate: [AuthGuardService]},
       {path: 'shopping-cart', component: ShoppingCartComponent, canActivate: [AuthGuardService]},
       {path: 'login', component: LoginComponent},
       {path: 'register', component: RegisterComponent},

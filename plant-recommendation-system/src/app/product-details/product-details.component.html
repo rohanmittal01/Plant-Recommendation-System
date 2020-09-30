@@ -1,0 +1,174 @@
+
+<div class="container" style="background: rgba(0, 0, 0, 0.6); padding:10px; color: white; border-radius: 10px;">
+    <h1 style="text-align: center;">{{product.Common_Name}}'s Details</h1>
+    <div class="row">
+      <div class="col-sm-5">
+        <div>
+          <img class="w-100"
+            [(src)]="product.imageUrl"
+            style="border: 5px solid white"
+          />
+        </div>
+      </div>
+      <div class="col-sm-7">
+        <div class="input-group mt-2">
+          <div class="input-group-prepend">
+            <span class="input-group-text" style="background-color: coral;"
+              >Latin Name</span
+            >
+          </div>
+          <input
+            type="text"
+            style="background-color: white;"
+            class="form-control"
+            [(value)]="product.Latin_Name"
+            disabled
+          />
+        </div>
+        <div class="input-group mt-2">
+          <div class="input-group-prepend">
+            <span class="input-group-text" style="background-color: coral;"
+              >Common Name</span
+            >
+          </div>
+          <input
+            type="text"
+            style="background-color: white;"
+            class="form-control"
+            [(value)]="product.Common_Name"
+            disabled
+          />
+        </div>
+        <div class="input-group mt-2">
+            <div class="input-group-prepend">
+              <span class="input-group-text" style="background-color: coral;"
+                >Family Name</span
+              >
+            </div>
+            <input
+              type="text"
+              style="background-color: white;"
+              class="form-control"
+              [(value)]="product.Family_Name"
+              disabled
+            />
+          </div>
+          <div class="input-group mt-2">
+            <div class="input-group-prepend">
+              <span class="input-group-text" style="background-color: coral;"
+                >Plant Type</span
+              >
+            </div>
+            <input
+              type="text"
+              style="background-color: white;"
+              class="form-control"
+              [(value)]="product.Plant_Type"
+              disabled
+            />
+          </div>
+          <div class="input-group mt-2">
+            <div class="input-group-prepend">
+              <span class="input-group-text" style="background-color: coral;"
+                >Bloom Time</span
+              >
+            </div>
+            <input
+              type="text"
+              style="background-color: white;"
+              class="form-control"
+              [(value)]="product.Bloom_Time"
+              disabled
+            />
+          </div>
+          <div class="input-group mt-2">
+            <div class="input-group-prepend">
+              <span class="input-group-text" style="background-color: coral;"
+                >Flower Color</span
+              >
+            </div>
+            <input
+              type="text"
+              style="background-color: white;"
+              class="form-control"
+              [(value)]="product.Flower_Color"
+              disabled
+            />
+          </div>
+          <div class="input-group mt-2">
+            <div class="input-group-prepend">
+              <span class="input-group-text" style="background-color: coral;"
+                >Size at Maturity</span
+              >
+            </div>
+            <input
+              type="text"
+              style="background-color: white;"
+              class="form-control"
+              [(value)]="product.Size_at_Maturity"
+              disabled
+            />
+          </div>
+          <div class="input-group mt-2">
+            <div class="input-group-prepend">
+              <span class="input-group-text" style="background-color: coral;"
+                >Suitable Site Conditions</span
+              >
+            </div>
+            <input
+              type="text"
+              style="background-color: white;"
+              class="form-control"
+              [(value)]="product.Suitable_Site_Conditions"
+              disabled
+            />
+          </div>
+          <div class="input-group mt-2">
+            <div class="input-group-prepend">
+              <span class="input-group-text" style="background-color: coral;"
+                >Soil Type</span
+              >
+            </div>
+            <input
+              type="text"
+              style="background-color: white;"
+              class="form-control"
+              [(value)]="product.Soil_Type"
+              disabled
+            />
+          </div>
+          <div class="input-group mt-2">
+            <div class="input-group-prepend">
+              <span class="input-group-text" style="background-color: coral;"
+                >Water Needs</span
+              >
+            </div>
+            <input
+              type="text"
+              style="background-color: white;"
+              class="form-control"
+              [(value)]="product.Water_Needs"
+              disabled
+            />
+          </div>
+          <div class="input-group mt-2">
+            <div class="input-group-prepend">
+              <span class="input-group-text" style="background-color: coral;"
+                >Appropriate Location</span
+              >
+            </div>
+            <input
+              type="text"
+              style="background-color: white;"
+              class="form-control"
+              [(value)]="product.Appropriate_Location"
+              disabled
+            />
+          </div>
+          <div class="mt-2">
+            <h4><u>Additional Notes</u></h4>
+            <h5>{{product.Additional_Characteristices_Notes}}</h5>
+          </div>
+      </div>
+    </div>
+</div>

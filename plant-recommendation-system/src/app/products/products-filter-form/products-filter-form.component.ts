@@ -32,42 +32,49 @@ export class ProductsFilterFormComponent implements OnInit {
     for(var i=0;i<8;i++){
       if('plant_type_' + this.filter.plant_type == this.cols[i]){
         this.values[i] = 1;
+        console.log('\nplant_type_' + this.filter.plant_type);
         break;
       }
     }
     for (var i = 8; i < 20; i++){
       if('bloom_time_' + this.filter.bloom_time == this.cols[i]){
         this.values[i] = 1;
+        console.log('\nbloom_time_' + this.filter.bloom_time);
         break;
       }
     }
     for (var i = 20; i < 25; i++){
       if('size_at_maturity_' + this.filter.size_at_maturity == this.cols[i]){
         this.values[i] = 1;
+        console.log('\nsize_at_maturity_' + this.filter.size_at_maturity);
         break;
       }
     }
     for(var i=25;i<31;i++){
       if('suitable_site_conditions_' + this.filter.suitable_site_conditions == this.cols[i]){
         this.values[i] = 1;
+        console.log('\nsuitable_site_conditions_' + this.filter.suitable_site_conditions);
         break;
       }
     }
     for(var i=31;i<43;i++){
       if('soil_type_' + this.filter.soil_type == this.cols[i]){
         this.values[i] = 1;
+        console.log('\nsoil_type_' + this.filter.soil_type);
         break;
       }
     }
     for(var i=43;i<45;i++){
       if('water_needs_' + this.filter.water_needs == this.cols[i]){
         this.values[i] = 1;
+        console.log('\nwater_needs_' + this.filter.water_needs);
         break;
       }
     }
     for(var i=45;i<50;i++){
       if('appropriate_location_' + this.filter.appropriate_location == this.cols[i]){
         this.values[i] = 1;
+        console.log('\nappropriate_location_' + this.filter.appropriate_location);
         break;
       }
     }
