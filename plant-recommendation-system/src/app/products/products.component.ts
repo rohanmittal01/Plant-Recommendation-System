@@ -33,6 +33,7 @@ export class ProductsComponent implements OnInit {
     this.getCart();
     this.getProducts();
     this.familyName = productService.familyName;
+    console.log(this.familyName);
   }
 
   ngOnInit() {}
