@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 import { ProductService } from '../_services/product.service';
@@ -23,7 +23,7 @@ export class ProductsComponent implements OnInit {
   maxRange;
   range;
   familyName=""
-  filterButtonClicked=true;
+  filterButtonClicked = false;
   constructor(
     private route: ActivatedRoute,
     private productService: ProductService,
@@ -49,6 +49,13 @@ export class ProductsComponent implements OnInit {
       this.productListCollection = data;
       this.filter();
     });
+  }
+  changeFunc(){
+    this.filterButtonClicked=true;
+  }
+  getResponse(x){
+    console.log('clicked');
+    this.filterButtonClicked = false;
   }
 
   filter() {

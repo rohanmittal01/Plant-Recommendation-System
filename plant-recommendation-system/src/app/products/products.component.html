@@ -1,7 +1,7 @@
 <!-- <app-banner></app-banner> -->
 <div class="row">
     <div class="col-lg-3 col-md-4 col-sm-6">
-      <button>Choose Conditions</button>
+      <button class="btn btn-warning" (click)="changeFunc()">Choose Conditions</button>
        <product-filter [avialability]="availability"></product-filter>
     </div>
     <div class="col-lg-9 col-md-8 col-sm-6">
@@ -14,7 +14,7 @@
             </ng-container>
           </div>
           <div class="row" *ngIf="filterButtonClicked">
-            <products-filter-form></products-filter-form>
+            <products-filter-form (filterButtonClick)='getResponse($event)'></products-filter-form>
           </div>
     </div>
 </div>
