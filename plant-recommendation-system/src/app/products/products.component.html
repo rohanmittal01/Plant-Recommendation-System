@@ -13,7 +13,7 @@
               <!-- <div *ngIf="(i + 1) % 3 === 0" class="w-100"></div> -->
             </ng-container>
           </div>
-          <div class="row" *ngIf="filterButtonClicked">
+          <div class="row col-12" *ngIf="filterButtonClicked">
             <products-filter-form (filterButtonClick)='getResponse($event)'></products-filter-form>
           </div>
     </div>

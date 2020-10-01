@@ -1,6 +1,7 @@
-['plant_type', 'bloom_time', 'flower_color', 'size_at_maturity', 'suitable_site_conditions', 'soil_type', 'water_needs', 'appropriate_location']
-
-<div>
+<!-- ['plant_type', 'bloom_time', 'flower_color', 'size_at_maturity', 'suitable_site_conditions', 'soil_type', 'water_needs', 'appropriate_location'] -->
+<div style="background: rgba(0, 0, 0, 0.6); padding:10px; color: white; border-radius: 10px;">
+    <h1>Choose Conditions</h1>
+<div class="w-100">
     <form #f="ngForm" (submit)="save()">
         <div class="form-group">
             <label for="Plant_Type">Plant Type</label>
@@ -101,4 +102,5 @@
     </div>
 
     </form>
+</div>
 </div>

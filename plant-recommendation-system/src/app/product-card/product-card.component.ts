@@ -18,7 +18,7 @@ export class ProductCardComponent implements OnInit {
   // tslint:disable-next-line: no-input-rename
   // @Input('shopping-cart') shoppingCart;
   shoppingCart;
-
+  family="";
   quantity = 0;
 
 
@@ -30,6 +30,7 @@ export class ProductCardComponent implements OnInit {
     private router: Router
   ) {
     this.shoppingCart = cartService.cart;
+    this.family = localStorage.getItem('family');
   }
 
   ngOnInit(): void {}

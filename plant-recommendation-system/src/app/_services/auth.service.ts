@@ -39,6 +39,7 @@ export class AuthService {
   logout(){
     if (this.loggedIn()){
       localStorage.removeItem('token');
+      localStorage.removeItem('family');
       // console.log('logged out!');
       this.alertify.warning('Logged Out!');
       window.location.reload();

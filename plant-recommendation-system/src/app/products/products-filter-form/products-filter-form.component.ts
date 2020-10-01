@@ -1,4 +1,5 @@
 import { Component, Output, OnInit, EventEmitter } from '@angular/core';
+import { Router } from '@angular/router';
 import { AlertifyService } from 'src/app/_services/alertify.service';
 import { ProductService } from 'src/app/_services/product.service';
 
@@ -17,7 +18,7 @@ export class ProductsFilterFormComponent implements OnInit {
   family: any;
   // tslint:disable-next-line: no-input-rename
   @Output() filterButtonClick = new EventEmitter<string>();
-  constructor(private productService: ProductService, private alertify: AlertifyService) {
+  constructor(private productService: ProductService, private alertify: AlertifyService, private route: Router) {
     this.initializeArray();
   }
 
@@ -96,13 +97,27 @@ export class ProductsFilterFormComponent implements OnInit {
       this.alertify.error(error.error.text);
       // console.log(error);
       this.productService.familyName = error.error.text;
-      this.filterButtonClick.emit('false');
+      localStorage.setItem('family', error.error.text);
+      this.f1().then(res => this.f2());
     });
     // console.log(this.values);
 
   }
 
-  cancel(){
+f1() {
+    return new Promise((resolve, reject) => {
+        console.log('f1');
+        setTimeout( () => {
+          resolve();
+      }, 1500);
+    });
+}
+
+f2() {
+   console.log('f2');
+   window.location.reload();
+}
+cancel(){
     this.filterButtonClick.emit('false');
     // console.log("here");
   }

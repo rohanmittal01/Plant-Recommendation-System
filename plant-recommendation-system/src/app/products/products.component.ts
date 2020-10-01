@@ -7,10 +7,9 @@ import { ShoppingCartService } from '../_services/shopping-cart.service';
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
-  styleUrls: ['./products.component.css']
+  styleUrls: ['./products.component.css'],
 })
 export class ProductsComponent implements OnInit {
-
   productListCollection: any[];
   subscribe1: Subscription;
   category: string;
@@ -22,7 +21,7 @@ export class ProductsComponent implements OnInit {
   minRange;
   maxRange;
   range;
-  familyName=""
+  familyName = '';
   filterButtonClicked = false;
   constructor(
     private route: ActivatedRoute,
@@ -32,34 +31,52 @@ export class ProductsComponent implements OnInit {
     // console.log('-------------------------------');
     this.getCart();
     this.getProducts();
-    this.familyName = productService.familyName;
-    console.log(this.familyName);
+    console.log('family: ' + this.familyName);
+    console.log('1')
   }
 
   ngOnInit() {}
 
   getCart() {
-    this.cartService.getCart().subscribe((data: any) => {
-      this.cart = data;
-    }, error => {});
+    this.cartService.getCart().subscribe(
+      (data: any) => {
+        this.cart = data;
+      },
+      (error) => {}
+    );
   }
 
   getProducts() {
     // console.log('prod');
-    this.productService.getAllProducts().subscribe((data: any) => {
-      this.productListCollection = data;
-      this.filter();
-    });
+    console.log('2')
+    this.familyName = localStorage.getItem('family');
+    console.log('x: '+this.familyName);
+    console.log(localStorage.getItem('family'));
+    if (this.familyName === '') {
+      this.productService.getAllProducts().subscribe((data: any) => {
+        console.log('3');
+        this.productListCollection = data;
+        this.filter();
+      });
+    }else{
+      this.productService.getFamilyData(this.familyName).subscribe((data:any) => {
+        this.productListCollection = data;
+        console.log(data);
+        this.filter();
+      })
+    }
   }
-  changeFunc(){
-    this.filterButtonClicked=true;
+  changeFunc() {
+    this.filterButtonClicked = true;
   }
-  getResponse(x){
+  getResponse(x) {
     console.log('clicked');
     this.filterButtonClicked = false;
   }
 
   filter() {
+    // this.familyName = this.productService.familyName;
+    console.log('family: ' + this.familyName);
     // console.log(this.productListCollection);
     this.route.queryParamMap.subscribe((params) => {
       this.availability = params.get('availability');
@@ -67,20 +84,37 @@ export class ProductsComponent implements OnInit {
       this.minRange = Number(params.get('minim'));
       this.maxRange = Number(params.get('maxim'));
       if (this.availability) {
-        this.productService.getAll().subscribe((x) => {
-          this.filteredProducts = x;
-        }, error => {
-          
-        });
+        if(this.familyName === ''){
+          console.log('111');
+          this.productService.getAll().subscribe(
+            (x) => {
+              this.filteredProducts = x;
+            },
+            (error) => {}
+          );
+        }else{
+          console.log('2222');
+          this.productService.getFamilyAvailableData(this.familyName).subscribe(
+            (x) => {
+              this.filteredProducts = x;
+              console.log(this.filteredProducts);
+            },
+            (error) => {}
+          );
+        }
       } else if (this.category) {
         this.filteredProducts = this.productListCollection.filter(
           (p: { category: string }) =>
+            // tslint:disable-next-line: triple-equals
             p.category.toLowerCase() == this.category.toLowerCase()
         );
-      } else if (this.minRange >= 0 && this.maxRange > 0){
-        let arr = [];
-        for(const pdt in this.productListCollection){
-          if(this.productListCollection[pdt].price >= this.minRange && this.productListCollection[pdt].price <= this.maxRange){
+      } else if (this.minRange >= 0 && this.maxRange > 0) {
+        const arr = [];
+        for (const pdt in this.productListCollection) {
+          if (
+            this.productListCollection[pdt].price >= this.minRange &&
+            this.productListCollection[pdt].price <= this.maxRange
+          ) {
             arr.push(this.productListCollection[pdt]);
           }
         }
@@ -94,7 +128,6 @@ export class ProductsComponent implements OnInit {
       if (this.filteredProducts.length == 0) {
         console.log('empty af');
         // tslint:disable-next-line: no-unused-expression
-        // tslint:disable-next-line: triple-equals
         this.noProducts == true;
       }
       // console.log(this.category);
@@ -107,5 +140,4 @@ export class ProductsComponent implements OnInit {
       //  console.log(this.filteredProducts);
     });
   }
-
 }
