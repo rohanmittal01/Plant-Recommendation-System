@@ -96,8 +96,14 @@ export class ProductsFilterFormComponent implements OnInit {
     }, error => {
       this.alertify.error(error.error.text);
       // console.log(error);
-      this.productService.familyName = error.error.text;
       localStorage.setItem('family', error.error.text);
+      localStorage.setItem('plantType', this.filter.plant_type);
+      localStorage.setItem('bloomTime', this.filter.bloom_time);
+      localStorage.setItem('sizeAtMaturity', this.filter.size_at_maturity);
+      localStorage.setItem('suitableSiteConditions', this.filter.suitable_site_conditions);
+      localStorage.setItem('soilType', this.filter.soil_type);
+      localStorage.setItem('waterNeeds', this.filter.water_needs);
+      localStorage.setItem('appropriateLocation', this.filter.appropriate_location);
       this.f1().then(res => this.f2());
     });
     // console.log(this.values);

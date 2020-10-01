@@ -6,7 +6,7 @@
       <p class="card-text"><b>Bloom:</b> {{ product.Bloom_Time}}</p>
       <p class="card-text"><b>Price:</b> {{ product.price | currency: "INR" }}</p>
       <div *ngIf="showActions">
-        <p *ngIf="family!=''"></p>
+        <p *ngIf="family!=null">{{product.match}}% Match</p>
         <button class="btn btn-warning w-100" (click)="details()">
           <b>Get Info <img src="https://cdn4.iconfinder.com/data/icons/linecon/512/info-256.png" style="height:20px;width: 20px;"></b>
         </button>

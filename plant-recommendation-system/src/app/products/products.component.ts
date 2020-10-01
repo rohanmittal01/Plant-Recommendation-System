@@ -22,7 +22,15 @@ export class ProductsComponent implements OnInit {
   maxRange;
   range;
   familyName = '';
+  plantType = '';
+  bloomTime = '';
+  sizeAtMaturity = '';
+  suitableSiteConditions = '';
+  soilType = '';
+  waterNeeds = '';
+  appropriateLocation = '';
   filterButtonClicked = false;
+  searchResult = 0;
   constructor(
     private route: ActivatedRoute,
     private productService: ProductService,
@@ -32,7 +40,7 @@ export class ProductsComponent implements OnInit {
     this.getCart();
     this.getProducts();
     console.log('family: ' + this.familyName);
-    console.log('1')
+    console.log('1');
   }
 
   ngOnInit() {}
@@ -48,30 +56,90 @@ export class ProductsComponent implements OnInit {
 
   getProducts() {
     // console.log('prod');
-    console.log('2')
+    console.log('2');
     this.familyName = localStorage.getItem('family');
-    console.log('x: '+this.familyName);
+    console.log('x: ' + this.familyName);
     console.log(localStorage.getItem('family'));
-    if (this.familyName === '') {
+    if (this.familyName === '' || this.familyName == null) {
       this.productService.getAllProducts().subscribe((data: any) => {
         console.log('3');
         this.productListCollection = data;
+        console.log(this.productListCollection);
+        this.findMatchPercent();
         this.filter();
       });
-    }else{
-      this.productService.getFamilyData(this.familyName).subscribe((data:any) => {
-        this.productListCollection = data;
-        console.log(data);
-        this.filter();
-      })
+    } else {
+      this.productService
+        .getFamilyData(this.familyName)
+        .subscribe((data: any) => {
+          this.productListCollection = data;
+          console.log(data);
+          this.findMatchPercent();
+          this.filter();
+        });
     }
   }
+
+  findMatchPercent() {
+    this.familyName = localStorage.getItem('family');
+    this.plantType = localStorage.getItem('plantType');
+    this.bloomTime = localStorage.getItem('bloomTime');
+    this.sizeAtMaturity = localStorage.getItem('sizeAtMaturity');
+    this.suitableSiteConditions = localStorage.getItem(
+      'suitableSiteConditions'
+    );
+    this.soilType = localStorage.getItem('soilType');
+    this.waterNeeds = localStorage.getItem('waterNeeds');
+    this.appropriateLocation = localStorage.getItem('appropriateLocation');
+    // tslint:disable-next-line: forin
+    for (var i in this.productListCollection) {
+      console.log(i);
+      var c = 0;
+      if (this.productListCollection[i].Bloom_Time == this.bloomTime) {
+        c += 1;
+      }
+      if (this.productListCollection[i].Plant_Type == this.bloomTime) {
+        c += 1;
+      }
+      if (
+        this.productListCollection[i].Size_at_Maturity == this.sizeAtMaturity
+      ) {
+        c += 1;
+      }
+      if (this.productListCollection[i].Soil_Type == this.soilType) {
+        c += 1;
+      }
+      if (
+        this.productListCollection[i].Suitable_Site_Conditions ==
+        this.suitableSiteConditions
+      ) {
+        c += 1;
+      }
+      if (this.productListCollection[i].Water_Needs == this.waterNeeds) {
+        c += 1;
+      }
+      if (
+        this.productListCollection[i].Appropriate_Location ==
+        this.appropriateLocation
+      ) {
+        c += 1;
+      }
+
+      this.productListCollection[i].match = ((c / 7) * 100).toFixed(2);
+    }
+  }
+
   changeFunc() {
     this.filterButtonClicked = true;
   }
   getResponse(x) {
     console.log('clicked');
     this.filterButtonClicked = false;
+  }
+
+  removeFilters(){
+    localStorage.removeItem('family');
+    window.location.reload();
   }
 
   filter() {
@@ -84,7 +152,7 @@ export class ProductsComponent implements OnInit {
       this.minRange = Number(params.get('minim'));
       this.maxRange = Number(params.get('maxim'));
       if (this.availability) {
-        if(this.familyName === ''){
+        if (this.familyName === '' || this.familyName == null) {
           console.log('111');
           this.productService.getAll().subscribe(
             (x) => {
@@ -92,7 +160,7 @@ export class ProductsComponent implements OnInit {
             },
             (error) => {}
           );
-        }else{
+        } else {
           console.log('2222');
           this.productService.getFamilyAvailableData(this.familyName).subscribe(
             (x) => {
@@ -125,19 +193,12 @@ export class ProductsComponent implements OnInit {
       // tslint:disable-next-line: triple-equals
       // console.log(this.filteredProducts);
       // tslint:disable-next-line: triple-equals
-      if (this.filteredProducts.length == 0) {
-        console.log('empty af');
-        // tslint:disable-next-line: no-unused-expression
-        this.noProducts == true;
-      }
-      // console.log(this.category);
-      // console.log(this.filteredProducts);
-      // console.log('------------------');
-      // console.log(this.category);
-      // console.log(this.availability);
-      // console.log(this.minRange);
-      // console.log(this.maxRange)
-      //  console.log(this.filteredProducts);
+      this.filteredProducts = this.filteredProducts.sort(this.filteredProducts.match);
+      this.filteredProducts.sort(function(a, b) {
+        return b.match - a.match;
     });
+    });
+    this.searchResult = this.filteredProducts.length;
+    console.log(this.searchResult);
   }
 }
