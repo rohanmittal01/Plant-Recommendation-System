@@ -103,7 +103,7 @@ import { MyOrderDetailsComponent } from './my-order-details/my-order-details.com
 
       {path: 'check-out', component: CheckOutComponent, canActivate: [AuthGuardService, RouteService]},
       {path: 'payment-gateway', component: PaymentGatewayComponent, canActivate: [AuthGuardService, RouteService]},
-      {path: 'order-success', component: OrderSuccessComponent, canActivate: [AuthGuardService]},
+      {path: 'order-success', component: OrderSuccessComponent, canActivate: [AuthGuardService, RouteService]},
       {path: 'my/orders', component: MyOrdersComponent, canActivate: [AuthGuardService]},
       {path: 'my/orders/:id', component: MyOrderDetailsComponent, canActivate: [AuthGuardService]},
      {path: 'admin/products/new', component: ProductFormComponent},
