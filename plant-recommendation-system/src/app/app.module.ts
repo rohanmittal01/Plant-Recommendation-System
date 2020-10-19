@@ -47,6 +47,7 @@ import { OrderSuccessComponent } from './order-success/order-success.component';
 import { ProductsFilterFormComponent } from './products/products-filter-form/products-filter-form.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { OrdersEditComponent } from './orders-edit/orders-edit.component';
+import { MyOrderDetailsComponent } from './my-order-details/my-order-details.component';
 
 @NgModule({
   declarations: [
@@ -72,7 +73,8 @@ import { OrdersEditComponent } from './orders-edit/orders-edit.component';
     OrderSuccessComponent,
     ProductsFilterFormComponent,
     ProductDetailsComponent,
-    OrdersEditComponent
+    OrdersEditComponent,
+    MyOrderDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -101,9 +103,9 @@ import { OrdersEditComponent } from './orders-edit/orders-edit.component';
 
       {path: 'check-out', component: CheckOutComponent, canActivate: [AuthGuardService, RouteService]},
       {path: 'payment-gateway', component: PaymentGatewayComponent, canActivate: [AuthGuardService, RouteService]},
-      {path: 'order-success', component: OrderSuccessComponent, canActivate: [AuthGuardService, RouteService]},
+      {path: 'order-success', component: OrderSuccessComponent, canActivate: [AuthGuardService]},
       {path: 'my/orders', component: MyOrdersComponent, canActivate: [AuthGuardService]},
-
+      {path: 'my/orders/:id', component: MyOrderDetailsComponent, canActivate: [AuthGuardService]},
      {path: 'admin/products/new', component: ProductFormComponent},
       {path: 'admin/products/:id', component: ProductFormComponent},
       {path: 'admin/products', component: AdminProductsComponent, canActivate: [AuthGuardService]},

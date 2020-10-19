@@ -6,11 +6,12 @@ import { OrderService } from '../_services/order.service';
 import { ProductService } from '../_services/product.service';
 
 @Component({
-  selector: 'app-orders-edit',
-  templateUrl: './orders-edit.component.html',
-  styleUrls: ['./orders-edit.component.css'],
+  selector: 'app-my-order-details',
+  templateUrl: './my-order-details.component.html',
+  styleUrls: ['./my-order-details.component.css']
 })
-export class OrdersEditComponent implements OnInit {
+export class MyOrderDetailsComponent implements OnInit {
+
   id;
   orderDetails: any = {};
   products = [];
@@ -24,7 +25,6 @@ export class OrdersEditComponent implements OnInit {
     private alertify: AlertifyService
   ) {
     this.id = this.route.snapshot.paramMap.get('id');
-    this.getDeliveryPerson();
     this.getOrderInfo();
     console.log(this.products);
   }
@@ -54,23 +54,7 @@ export class OrdersEditComponent implements OnInit {
     }
   }
 
-  getDeliveryPerson(){
-    console.log('hi');
-    this.deliveryService.getAvailable().subscribe(x => {
-      this.deliveryPersons = x;
-      console.log('hi');
-      console.log(this.deliveryPersons);
-    });
-  }
 
-  update(){
-    console.log(this.orderDetails.status);
-    console.log(this.orderDetails.deliveryPerson); 
-    this.orderService.updateOrder({id: this.id, body: this.orderDetails}).subscribe(x => {
-      this.alertify.success('Order details updated successfully!');
-    }, error => {
-      this.alertify.error('Order details could not be updated!');
-    });
+  ngOnInit(): void {
   }
-  ngOnInit(): void {}
 }

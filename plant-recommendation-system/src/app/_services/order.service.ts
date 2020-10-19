@@ -27,4 +27,8 @@ export class OrderService {
   getOrderDetails(orderId){
     return this.http.get(this.baseUrl+'order/id/'+orderId);
   }
+
+  updateOrder(params){
+    return this.http.patch(this.baseUrl + 'orders/' + params.id, params.body);
+  }
 }
