@@ -28,7 +28,7 @@ export class ProductDetailsComponent implements OnInit {
       this.productService.get(this.id).subscribe((p) => {
         this.product = p;
         this.product.Soil_Type = this.product.Soil_Type.replace(/;/g, ' or ');
-        this.product.Suitable_Site_Conditions = this.product.Suitable_Site_Conditions.replace(/;/g,' or ');
+        this.product.Suitable_Site_Conditions = this.product.Suitable_Site_Conditions.replace(/;/g, ' or ');
         this.product.Bloom_Time = this.product.Bloom_Time.replace(/;/g,', ');
         this.product.Flower_Color = this.product.Flower_Color.replace(/;/g,', ');
         this.product.Appropriate_Location = this.product.Appropriate_Location.replace(/;/g,' or ');

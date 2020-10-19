@@ -46,6 +46,7 @@ import { PaymentGatewayComponent } from './payment-gateway/payment-gateway.compo
 import { OrderSuccessComponent } from './order-success/order-success.component';
 import { ProductsFilterFormComponent } from './products/products-filter-form/products-filter-form.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
+import { OrdersEditComponent } from './orders-edit/orders-edit.component';
 
 @NgModule({
   declarations: [
@@ -70,7 +71,8 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
     PaymentGatewayComponent,
     OrderSuccessComponent,
     ProductsFilterFormComponent,
-    ProductDetailsComponent
+    ProductDetailsComponent,
+    OrdersEditComponent
   ],
   imports: [
     BrowserModule,
@@ -83,7 +85,6 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
     MatIconModule,
     MatSortModule,
     MatPaginatorModule,
-    BrowserAnimationsModule,
     NoopAnimationsModule,
     MatFormFieldModule,
     MatButtonModule,
@@ -107,6 +108,7 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
       {path: 'admin/products/:id', component: ProductFormComponent},
       {path: 'admin/products', component: AdminProductsComponent, canActivate: [AuthGuardService]},
       {path: 'admin/orders', component: AdminOrdersComponent, canActivate: [AuthGuardService]},
+      {path: 'admin/order/:id', component: OrdersEditComponent, canActivate: [AuthGuardService]},
       {path: 'admin/delivery-person', component: AdminDeliveryPersonComponent, canActivate: [AuthGuardService]},
       // {path: 'admin/categories/new', component: CategoryformComponent, canActivate: [AuthGuardService]},
       // {path: 'admin/categories/:id', component: CategoryformComponent, canActivate: [AuthGuardService]},
