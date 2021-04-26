@@ -94,6 +94,7 @@ export class ProductsFilterFormComponent implements OnInit {
       this.family = x;
       // console.log(this.family);
     }, error => {
+      console.log(error);
       this.alertify.error(error.error.text);
       // console.log(error);
       localStorage.setItem('family', error.error.text);
@@ -111,7 +112,7 @@ export class ProductsFilterFormComponent implements OnInit {
   }
 
 f1() {
-    return new Promise((resolve, reject) => {
+    return new Promise<void>((resolve, reject) => {
         console.log('f1');
         setTimeout( () => {
           resolve();
@@ -121,7 +122,7 @@ f1() {
 
 f2() {
    console.log('f2');
-   window.location.reload();
+  //  window.location.reload();
 }
 cancel(){
     this.filterButtonClick.emit('false');
